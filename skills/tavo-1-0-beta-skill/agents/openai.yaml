@@ -1,0 +1,6 @@
+interface:
+  display_name: "Tavo MCP 与版本证据"
+  short_description: "Discover the Tavo MCP surface and versioned schemas"
+  default_prompt: "使用 $tavo-1-0-beta-skill 核对目标 MCP 版本、工具及公开 schema。"
+policy:
+  allow_implicit_invocation: false

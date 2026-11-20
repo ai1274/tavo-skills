@@ -1,0 +1,6 @@
+interface:
+  display_name: "Tavo 工程实现与验证"
+  short_description: "Implement and validate Tavo plugins and artifacts"
+  default_prompt: "使用 $tavo-studio 修改并验证 Tavo 工程或可导入产物。"
+policy:
+  allow_implicit_invocation: false

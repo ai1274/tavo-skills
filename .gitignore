@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.env
+.env.local
+dist/
+local-reference-only/
+skills/*/references/official-current/
+skills/*/assets/official-docs/
+skills/*/assets/evidence/

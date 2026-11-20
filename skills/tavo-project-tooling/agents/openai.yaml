@@ -1,0 +1,6 @@
+interface:
+  display_name: "Tavo 项目工具链"
+  short_description: "Diagnose Tavo routing, resource and repository tooling"
+  default_prompt: "使用 $tavo-project-tooling 定位当前 Tavo 工具链的 owner 和故障。"
+policy:
+  allow_implicit_invocation: false

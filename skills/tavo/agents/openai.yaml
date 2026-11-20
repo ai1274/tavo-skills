@@ -1,0 +1,6 @@
+interface:
+  display_name: "Tavo 统一入口"
+  short_description: "自动选择 Tavo 平台、工程、角色卡或项目流程"
+  default_prompt: "使用 $tavo 按当前交付物自动选择所需的 Tavo 专项。"
+policy:
+  allow_implicit_invocation: true

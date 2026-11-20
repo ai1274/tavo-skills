@@ -1,0 +1,6 @@
+interface:
+  display_name: "Tavo 主线最小开发"
+  short_description: "Find source owners and constrain the minimum change"
+  default_prompt: "使用 $tavo-mainline-minimal-development 为已确定的方案定位 owner、改动范围和最小回归。"
+policy:
+  allow_implicit_invocation: false
