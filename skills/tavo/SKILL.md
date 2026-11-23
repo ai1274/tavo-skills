@@ -1,6 +1,6 @@
 ---
 name: tavo
-description: "Tavo 通用入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、插件与 WebView、主题、角色卡、世界书、预设、正则，或需要跨专项判断与协作的 Tavo 任务。只需最小改动计划、仓库流程或工具排障时，由模型直接选择对应专项。非 Tavo 工作仅在显式调用时进入配套流程。"
+description: "Tavo 通用入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、插件与 WebView、主题、角色卡、世界书、预设、正则。插件首屏慢、滚动卡、数据处理或请求吞吐与稳定性需要实测优化时，进入工程性能流程。只需最小改动计划、仓库流程或工具排障时，由模型直接选择对应专项。非 Tavo 工作仅在显式调用时进入配套流程。"
 ---
 
 # Tavo
@@ -13,7 +13,7 @@ description: "Tavo 通用入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、�
 | --- | --- |
 | 解释平台能力、配置、接口区别，或编写独立预设 / 世界书 / 正则 / EJS 内容 | [平台文档与内容编写](../tavo-skill/SKILL.md) |
 | 连接或诊断 MCP、查看 MCP 的工具/资源/schema、比较指定 MCP 版本，或经 MCP 执行被授权的操作 | [MCP 与版本证据](../tavo-1-0-beta-skill/SKILL.md) |
-| 新建、修改、调试、构建 TPG / TavoJS / 主题 / WebView，包括 App 右侧边栏、插件内技能应用与自动配置；核验包结构、PNG 封装或导入链路 | [工程实现与验证](../tavo-studio/SKILL.md) |
+| 新建、修改、调试、构建或实测优化 TPG / TavoJS / 主题 / WebView 及插件数据链路、服务，包括 App 右侧边栏、插件内技能应用与自动配置；核验包结构、PNG 封装或导入链路 | [工程实现与验证](../tavo-studio/SKILL.md) |
 | 编写或审查角色卡套件，连同配套世界书、角色输出约束或卡内正则 | [角色卡设计](../tavo-character-card/SKILL.md) |
 | Tavo 方案已定，单独交付具体改哪里、哪些是生成物、用什么最小回归证明 | [主线最小开发](../tavo-mainline-minimal-development/SKILL.md) |
 | 确定仓库或插件包维护边界、任务合同、Writer 分工与合并门禁，或判断验收、归档条件 | [项目架构与工作流](../tavo-memory-steward-clean-workflow/SKILL.md) |
@@ -23,6 +23,8 @@ description: "Tavo 通用入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、�
 “TPG 的 `minAppVersion` 怎么定”走平台问答。“改这个 TPG 并打包”走工程，现有测试和门禁也由工程运行。“连接服务器看看该字段是否暴露”走 MCP。卡自带的世界书和正则走角色卡，单独写世界书走平台。需要第二项交付时，到了该阶段才加载相关分支。例如角色卡写完后，经授权用 MCP 核对导入 schema。
 
 同一任务需要分工验收与源码范围时，先由项目工作流确定包、合同和门禁，再由主线锁定源码路径及回归。工具异常需要单独诊断时，带上工作目录、输入、命令和报错交给工具链，并把诊断回传给负责门禁的分支。
+
+**插件性能**。出现首屏慢、滚动卡、处理量增大后变慢、慢请求或取消后资源积压时，按[插件性能实测流程](../tavo-studio/references/plugin-performance.md)定位和复测。纯样式调整走工程分支的界面流程。重复性能请求先复验已有实现。
 
 ## 按需使用配套流程
 

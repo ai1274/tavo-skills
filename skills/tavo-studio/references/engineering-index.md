@@ -8,6 +8,7 @@
 | App 右侧边栏、WebView 内应用技能 | [侧栏技能应用与自动配置](sidebar-skill-application.md)，沿目标项目的注册、配置与执行链核验。 |
 | TavoJS 入口、变量、generation hooks | [TavoJS](https://docs.tavoai.dev/cn/guides/javascript-api/)，查具体上下文和写入/恢复边界。 |
 | 主题脚本 / 高级渲染 / WebView | [主题开发](https://docs.tavoai.dev/cn/guides/theme-development/)、[主题开发指南](https://docs.tavoai.dev/cn/guides/theme-development-guide/)或[高级渲染](https://docs.tavoai.dev/cn/guides/advanced-rendering/)；针对声明的宿主/UI 容器验证。 |
+| 插件首屏、交互卡顿、数据算法、慢请求或服务稳定性 | [插件性能实测流程](plugin-performance.md)，按实际链路定位和复测。 |
 | EJS、宏、正则 | [EJS](https://docs.tavoai.dev/cn/guides/ejs-template/)、[宏](https://docs.tavoai.dev/cn/guides/supported-macros/)、[正则](https://docs.tavoai.dev/cn/guides/regular/)；按实际执行层验证。 |
 | 包结构、产物导入/导出、卡 PNG | [产物核验](artifact-validation-playbook.md)，PNG 补读 [封装工具](png-embedding.md)。 |
 | 确认仓库或工程 owner | [本地项目结构](../../tavo-memory-steward-clean-workflow/references/project-architecture.md)，以目标项目合同和实际命令为准。 |
