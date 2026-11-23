@@ -3,4 +3,4 @@ interface:
   short_description: "Locate the actual project and define acceptance gates"
   default_prompt: "使用 $tavo-memory-steward-clean-workflow 判断 Tavo 工程维护边界和验收方式。"
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

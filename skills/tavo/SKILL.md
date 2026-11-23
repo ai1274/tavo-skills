@@ -1,11 +1,11 @@
 ---
 name: tavo
-description: "Tavo 全局统一入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、插件与 WebView、主题、角色卡 / 世界书 / 预设 / 正则，以及记忆管家与项目工具链。按任务选择专项技能和可选的工程检查。非 Tavo 工作仅在显式应用本技能时使用配套流程。"
+description: "Tavo 通用入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、插件与 WebView、主题、角色卡、世界书、预设、正则，或需要跨专项判断与协作的 Tavo 任务。只需最小改动计划、仓库流程或工具排障时，由模型直接选择对应专项。非 Tavo 工作仅在显式调用时进入配套流程。"
 ---
 
 # Tavo
 
-只应用 `$tavo` 即可。先确认任务对象、当前项目规则和交付物。Tavo 任务选一个主分支，并按实际工作阶段选用配套流程。显式将 `$tavo` 用作通用入口时，跟随当前项目流程，直接进入配套路由。
+先确认任务对象、当前项目规则和交付物。模型已选中能完成交付的专项时，直接使用该专项。用户调用 `$tavo`、任务跨专项或需要判断分支时，按下表选主分支，并按阶段选用配套流程。显式将 `$tavo` 用作通用入口时，跟随当前项目流程进入配套路由。
 
 按表读取同级技能，已加载的直接复用。用户指定的技能、启用策略和目标项目规则继续生效。技能缺失或停用时用现有项目证据继续，影响结果时说明限制。
 
@@ -15,12 +15,14 @@ description: "Tavo 全局统一入口。用于 Tavo 平台、TavoJS、MCP、TPG 
 | 连接或诊断 MCP、查看 MCP 的工具/资源/schema、比较指定 MCP 版本，或经 MCP 执行被授权的操作 | [MCP 与版本证据](../tavo-1-0-beta-skill/SKILL.md) |
 | 新建、修改、调试、构建 TPG / TavoJS / 主题 / WebView，包括 App 右侧边栏、插件内技能应用与自动配置；核验包结构、PNG 封装或导入链路 | [工程实现与验证](../tavo-studio/SKILL.md) |
 | 编写或审查角色卡套件，连同配套世界书、角色输出约束或卡内正则 | [角色卡设计](../tavo-character-card/SKILL.md) |
-| 方案已定，交付物是 owner 定位、修改路径锁定或最小回归计划 | [主线最小开发](../tavo-mainline-minimal-development/SKILL.md) |
-| 交付物是仓库架构/维护边界、任务合同、Writer 集成、验收或归档判断 | [项目架构与工作流](../tavo-memory-steward-clean-workflow/SKILL.md) |
-| Router、Registry、项目资源校验、Project Map、RAG、项目内 Graphify 集成、Hook 或发布脚本本身需要操作/排障 | [项目工具链](../tavo-project-tooling/SKILL.md) |
+| Tavo 方案已定，单独交付具体改哪里、哪些是生成物、用什么最小回归证明 | [主线最小开发](../tavo-mainline-minimal-development/SKILL.md) |
+| 确定仓库或插件包维护边界、任务合同、Writer 分工与合并门禁，或判断验收、归档条件 | [项目架构与工作流](../tavo-memory-steward-clean-workflow/SKILL.md) |
+| 诊断或操作工具本身，例如路由漏匹配、校验误报、Registry 或 Project Map 过期、项目内 RAG/Graphify 接线、Hook 或发布脚本故障 | [项目工具链](../tavo-project-tooling/SKILL.md) |
 | 明确要求执行 Graphify 操作，或使用已有 `graphify-out` 作为独立交付 | 按项目已有 Graphify 流程执行 |
 
-**消歧：**“TPG 的 `minAppVersion` 怎么定”是平台问答；“改这个 TPG 并打包”是工程；“连接服务器看看该字段是否暴露”是 MCP。只列已定方案的修改/回归路径走主线，梳理各工程职责走架构。卡自带世界书/正则仍走角色卡；单独写世界书走平台。源码修复不会因为要跑测试就切到工具链。确有第二交付或只有另一分支能完成的交接，到那个阶段再读另一分支，例如做卡后才通过 MCP 核对导入 schema，不因此执行导入。
+“TPG 的 `minAppVersion` 怎么定”走平台问答。“改这个 TPG 并打包”走工程，现有测试和门禁也由工程运行。“连接服务器看看该字段是否暴露”走 MCP。卡自带的世界书和正则走角色卡，单独写世界书走平台。需要第二项交付时，到了该阶段才加载相关分支。例如角色卡写完后，经授权用 MCP 核对导入 schema。
+
+同一任务需要分工验收与源码范围时，先由项目工作流确定包、合同和门禁，再由主线锁定源码路径及回归。工具异常需要单独诊断时，带上工作目录、输入、命令和报错交给工具链，并把诊断回传给负责门禁的分支。
 
 ## 按需使用配套流程
 

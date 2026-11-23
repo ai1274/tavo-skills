@@ -1,6 +1,6 @@
 # Tavo Skills
 
-面向 Tavo 创作者与插件开发者的八个 Agent Skills。用 `tavo` 作为入口，即可按任务查平台文档、制作角色卡与世界书、开发插件和主题，或连接 MCP 核对当前宿主支持的功能。
+面向 Tavo 创作者与插件开发者的八个 Agent Skills。可以通过 `tavo` 查平台文档、制作角色卡与世界书、开发插件和主题，或连接 MCP 核对当前宿主支持的功能。Codex 还可以按交付物直接选择主线最小开发、项目架构与工作流或项目工具链。
 
 技能安装在 Codex 或 Claude Code 中。需要验证插件在 Tavo 中的实际表现时，再使用目标 Tavo App。
 
@@ -8,11 +8,11 @@
 
 1. 克隆仓库，或在 GitHub 的 **Code → Download ZIP** 下载 `main` 并解压。
 2. 将 `skills/` 下的八个子目录复制到客户端的技能目录，保持八个目录同级。已有同名目录时先比较本地改动。
-3. 在客户端打开新会话并调用 `tavo`。在已有项目中使用时，说明项目位置、交付物和目标 Tavo 版本。
+3. 在客户端打开新会话。在已有项目中使用时，说明项目位置、交付物和目标 Tavo 版本。
 
 | 客户端 | 用户级技能目录 | 调用方式 |
 | --- | --- | --- |
-| Codex | `~/.agents/skills/` | 选择或输入 `$tavo` |
+| Codex | `~/.agents/skills/` | 直接描述任务，或输入 `$tavo` 让它选择分支 |
 | Claude Code | `~/.claude/skills/` | 输入 `/tavo` |
 
 本次更新从 `main` 安装。首次发布的安装包见 [v1.0.0](https://github.com/ai1274/tavo-skills/releases/tag/v1.0.0)。
