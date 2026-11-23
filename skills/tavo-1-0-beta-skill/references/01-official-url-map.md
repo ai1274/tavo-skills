@@ -247,6 +247,7 @@ Archived inventories describe what is bundled, not an execution plan. Inspect sc
 | `references/34-tavo-150-mcp-evidence.md` | Redacted 2026-09-15 Tavo MCP 1.5.0 read-only snapshot, resource and schema hashes, byte-identical 1.3.2 delta, and unknown boundaries. |
 | `references/35-tavo-160-mcp-evidence.md` | Redacted 2026-09-23 Tavo MCP 1.6.0 read-only snapshot, 16 added tools, changed docs and chat-theme schema, and unknown boundaries. |
 | `references/36-tavo-190-mcp-evidence.md` | Historical 2026-11-07 Tavo MCP 1.9.0 discovery and complete public-resource/tool-descriptor comparison baseline. |
+| [1.12.0 MCP evidence](39-tavo-1120-mcp-evidence.md) | Public discovery, resource comparison and synthetic plugin checks. |
 | `references/38-tavo-1110-mcp-evidence.md` | 1.11.0 public discovery, schema/resource deltas and proof boundaries. |
 | `references/37-tavo-1100-mcp-evidence.md` | Historical 1.10.0 comparison with 1.9.0. |
 | `references/historical/deprecated-claims.md` | Historical claims from old skills that must not silently enter new answers. |

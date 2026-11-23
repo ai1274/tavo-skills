@@ -6,7 +6,7 @@ Historical crawl source: `https://docs.tavoai.dev/cn/`
 
 Retained crawl result on 2026-09-11: `fetched_pages=84`, `unfetched_count=1`, `errors=1`. The unfetched discovered URL is `https://docs.tavoai.dev/cn/guides/chat/import-export/`.
 
-Current technical corpus: the 17-page official technical corpus verified on 2026-11-18 (five updated, twelve byte-identical). See [sync manifest（来源说明）](public-release-sources.md#本地资料) for the export identity and chapter provenance. The URL list below retains its original crawl date.
+The 2026-11-23 [technical documentation check](public-release-sources.md#2026-11-23-技术文档核对) covered 18 chapters (four updated, 14 unchanged). The URL list below retains its historical crawl scope, with later additions.
 
 The retained 2026-09-11 crawl was performed by `scripts/fetch_official_docs.py`; no non-Markdown snapshot is committed. The temporary normalized manifest and text output are task evidence only. The 2026-07-16 83-page files below remain a historical comparison baseline.
 
@@ -16,12 +16,12 @@ Durable text snapshot: `assets/official-docs/text-20260716/`.
 
 Durable normalized manifest: `assets/official-docs/official_manifest-20260716.json`.
 
-This IA list retains the 2026-09-11 `docs.tavoai.dev/cn` crawl baseline, with dated technical additions below. The 17 selected technical pages have portable mirrors.
+This IA list retains the 2026-09-11 `docs.tavoai.dev/cn` crawl baseline, with dated technical additions below. The mapping lists filenames for an optional, independently obtained local corpus; this public repository does not redistribute it.
 
 ## Version Note
 
 - The retained 84-page crawl does not expose a dedicated changelog or release-notes URL.
-- The retained 0.92 runtime evidence is historical. For the current locally captured version and schemas see [1.11.0 MCP evidence](../../tavo-1-0-beta-skill/references/38-tavo-1110-mcp-evidence.md).
+- The retained 0.92 runtime evidence is historical. For the latest dated discovery in this repository see the [1.12.0 MCP public summary](../../tavo-1-0-beta-skill/references/39-tavo-1120-mcp-evidence.md).
 - Use the mapped pages for exact current declarations. This URL map intentionally does not infer a release changelog from documentation diffs.
 - Unchanged mirror bodies retain their earlier sync dates. Earlier MCP or Android observations remain scoped to the tested version.
 
@@ -109,7 +109,7 @@ This IA list retains the 2026-09-11 `docs.tavoai.dev/cn` crawl baseline, with da
 
 ## Current Technical Corpus Mapping
 
-| Official page | Portable Skill reference |
+| Official page | Optional local corpus filename |
 | --- | --- |
 | [主题](https://docs.tavoai.dev/cn/guides/theme/) | `references/official-current/theme.md` |
 | [主题开发](https://docs.tavoai.dev/cn/guides/theme-development/) | `references/official-current/theme-development.md` |
@@ -121,12 +121,14 @@ This IA list retains the 2026-09-11 `docs.tavoai.dev/cn` crawl baseline, with da
 | [高级前端渲染](https://docs.tavoai.dev/cn/guides/advanced-rendering/) | `references/official-current/advanced-rendering.md` |
 | [工具调用](https://docs.tavoai.dev/cn/guides/tool-calling/) | `references/official-current/tool-calling.md` |
 | [TavoJS API](https://docs.tavoai.dev/cn/guides/javascript-api/) | `references/official-current/javascript-api.md` |
+| [决策开发指南](https://docs.tavoai.dev/cn/guides/decision-api/) | `references/official-current/decision-api.md` |
 | [宏](https://docs.tavoai.dev/cn/guides/supported-macros/) | `references/official-current/supported-macros.md` |
 | [EJS 模板](https://docs.tavoai.dev/cn/guides/ejs-template/) | `references/official-current/ejs-template.md` |
 | [MCP Server](https://docs.tavoai.dev/cn/guides/mcp-server/) | `references/official-current/mcp-server.md` |
 | [插件使用](https://docs.tavoai.dev/cn/guides/plugins/) | `references/official-current/plugins.md` |
 | [插件开发](https://docs.tavoai.dev/cn/guides/plugin-development/) | `references/official-current/plugin-development.md` |
 | [插件开发指南](https://docs.tavoai.dev/cn/guides/plugin-development-guide/) | `references/official-current/plugin-development-guide.md` |
+| [向量管理](https://docs.tavoai.dev/cn/guides/vector-memory/) | `references/official-current/vector-memory.md` |
 
 ## Search the official snapshots offline
 
@@ -157,7 +159,7 @@ This IA list retains the 2026-09-11 `docs.tavoai.dev/cn` crawl baseline, with da
 
 ## Refresh Practice
 
-- Use `references/official-current/` for the 17 verified technical pages; refresh the official source before adding later-current or out-of-slice facts. The existing fetch/normalize scripts own HTML crawls, not full-export chapter extraction.
+- Follow the official links or use independently sourced local snapshots for the 18 selected chapters. Check official sources before adding later-current or out-of-scope facts. The existing fetch/normalize scripts own HTML crawls, not full-export chapter extraction.
 - Keep this file as the official IA index; detailed summaries belong in the topic references.
 - A complete crawl must report `complete=true`, `unfetched_count=0`, and `errors=0`.
 - If a page disappears or changes title, mark the change in the topic reference and keep old claims out of current answers.
@@ -261,4 +263,4 @@ Before accepting skeleton or reference edits, run:
 python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py tavo-skill
 ```
 
-Use `references/official-current/` and [sync manifest（来源说明）](public-release-sources.md#本地资料). For later-current claims, refresh the official source. The existing fetch and normalize scripts own HTML crawls, not `llms-full.txt` chapter extraction.
+See [技术文档与证据](public-release-sources.md) for public provenance and optional local search. Refresh the official source when making claims beyond the documented scope.

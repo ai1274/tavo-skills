@@ -1,26 +1,37 @@
 ---
 name: tavo
-description: "Tavo 全局统一入口。用于 Tavo 平台能力、TavoJS、MCP、TPG v2、插件与 WebView、主题、角色卡 / 世界书 / 预设 / 正则，以及 Memory Center、记忆管家、Tavo 项目架构和工程工具。非 Tavo 通用工作不触发。"
+description: "Tavo 全局统一入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、插件与 WebView、主题、角色卡 / 世界书 / 预设 / 正则，以及记忆管家与项目工具链。按任务选择专项技能和可选的工程检查。非 Tavo 工作仅在显式应用本技能时使用配套流程。"
 ---
 
 # Tavo
 
-按**要交付什么**选择主分支，不按出现了哪些名词叠加技能。从本文件位置直接打开对应的全局 `SKILL.md`，只读当前问题需要的参考。无需让用户手动选专项、无需重新调用技能。显式指定其他技能或路径时尊重其选择；项目内同名技能不是下表的全局文件，但所在项目的规则、合同、测试和 builder 仍约束项目工作。
+只应用 `$tavo` 即可。先确认任务对象、当前项目规则和交付物。Tavo 任务选一个主分支，并按实际工作阶段选用配套流程。显式将 `$tavo` 用作通用入口时，跟随当前项目流程，直接进入配套路由。
+
+按表读取同级技能，已加载的直接复用。用户指定的技能、启用策略和目标项目规则继续生效。技能缺失或停用时用现有项目证据继续，影响结果时说明限制。
 
 | 用户要交付什么 | 读取主分支 |
 | --- | --- |
 | 解释平台能力、配置、接口区别，或编写独立预设 / 世界书 / 正则 / EJS 内容 | [平台文档与内容编写](../tavo-skill/SKILL.md) |
 | 连接或诊断 MCP、查看 MCP 的工具/资源/schema、比较指定 MCP 版本，或经 MCP 执行被授权的操作 | [MCP 与版本证据](../tavo-1-0-beta-skill/SKILL.md) |
-| 新建、修改、调试、构建 TPG / TavoJS / 主题 / WebView；核验包结构、PNG 封装或导入链路 | [工程实现与验证](../tavo-studio/SKILL.md) |
+| 新建、修改、调试、构建 TPG / TavoJS / 主题 / WebView，包括 App 右侧边栏、插件内技能应用与自动配置；核验包结构、PNG 封装或导入链路 | [工程实现与验证](../tavo-studio/SKILL.md) |
 | 编写或审查角色卡套件，连同配套世界书、角色输出约束或卡内正则 | [角色卡设计](../tavo-character-card/SKILL.md) |
 | 方案已定，交付物是 owner 定位、修改路径锁定或最小回归计划 | [主线最小开发](../tavo-mainline-minimal-development/SKILL.md) |
 | 交付物是仓库架构/维护边界、任务合同、Writer 集成、验收或归档判断 | [项目架构与工作流](../tavo-memory-steward-clean-workflow/SKILL.md) |
-| Router、Registry、项目资源校验、Project Map、RAG、Graphify、Hook 或发布脚本本身需要操作/排障 | [项目工具链](../tavo-project-tooling/SKILL.md) |
+| Router、Registry、项目资源校验、Project Map、RAG、项目内 Graphify 集成、Hook 或发布脚本本身需要操作/排障 | [项目工具链](../tavo-project-tooling/SKILL.md) |
+| 明确要求执行 Graphify 操作，或使用已有 `graphify-out` 作为独立交付 | 按项目已有 Graphify 流程执行 |
 
 **消歧：**“TPG 的 `minAppVersion` 怎么定”是平台问答；“改这个 TPG 并打包”是工程；“连接服务器看看该字段是否暴露”是 MCP。只列已定方案的修改/回归路径走主线，梳理各工程职责走架构。卡自带世界书/正则仍走角色卡；单独写世界书走平台。源码修复不会因为要跑测试就切到工具链。确有第二交付或只有另一分支能完成的交接，到那个阶段再读另一分支，例如做卡后才通过 MCP 核对导入 schema，不因此执行导入。
 
-**查官方技术文档：**先按交付物选分支；已知页面就直接读。接口名、配置项或术语涉及多页、章节不明时，使用[官方 URL 索引](../tavo-skill/references/01-official-url-map.md#search-the-official-snapshots-offline)。检索结果用于定位原文，不改变分支、证据级别或操作授权。
+## 按需使用配套流程
 
-只有用户要用 Tavo 或任务确实依赖 Tavo 时才应用：仅处在 Tavo 目录、提到产品名称、翻译一段日志，或普通 CSS/JSON 问题，不自动进入整套流程。项目对象不清时先由当前目录和最近规则定位；不同 owner 会改变结果且无法消歧时才问。
+接口或实现不熟悉时，先看项目约定和已有知识库。整体改版先确定视觉方向，复杂界面再做布局、响应式和可访问性决策。关键 WebView 交互做定向审计。可复现缺陷和非平凡行为先建回归基线。仅在任务明确需要时查询或更新 Graphify。客户端已安装适用的设计、Web 审计、TDD、知识检索或 Graphify 技能时，可按工作阶段使用。
+
+这里的 Agent Skills 供客户端使用。涉及 Tavo App 内应用技能时，先定位真实 TPG 和执行入口，再查[侧栏技能应用](../tavo-studio/references/sidebar-skill-application.md)。
+
+**查官方技术文档：**先按交付物选分支；已知页面就直接读。接口名、配置项或术语涉及多页、章节不明时，再用[官方 URL 索引与离线检索](../tavo-skill/references/01-official-url-map.md#search-the-official-snapshots-offline)。检索结果用于定位原文，不改变分支、证据级别或操作授权。
+
+**Tavo MCP 同机示例**为 `http://127.0.0.1:7347/mcp`。首选直连 HTTP JSON-RPC，地址以 Tavo 当前设置为准。仅在当前任务获授权且需要实时接口或插件校验时连接；Bearer 由用户在当次运行注入，不写入技能、项目或日志。Tavo 插件开发按[工程分支的验证闭环](../tavo-studio/SKILL.md#开发时用-mcp-验证)，不因加载本技能自动连接。
+
+隐式触发以交付物是否依赖 Tavo 为准。仅处在 Tavo 目录、提到名称或翻译日志均不触发。先由当前目录和最近规则定位项目对象。不同 owner 会改变结果且无法消歧时再询问。
 
 声明、schema、离线测试、宿主行为分别取证。分析、构建与宿主操作权限分开；未经授权不安装、不写用户数据、不调用 provider、不发布。不要输出或保存凭据。

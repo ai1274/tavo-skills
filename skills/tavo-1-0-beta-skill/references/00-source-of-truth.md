@@ -6,7 +6,7 @@ This file defines how the Tavo skill decides what is current, what is inferred, 
 
 ## Current Official Documentation Baseline
 
-Official technical chapters: the 17-page official technical corpus verified on 2026-11-18 (five updated, twelve byte-identical). See [global sync manifest（来源说明）](../../tavo-skill/references/public-release-sources.md#本地资料).
+The official documentation comparison covered 18 Chinese technical chapters on 2026-11-23. Four chapters changed and 14 were unchanged. [Public sources](../../tavo-skill/references/public-release-sources.md)
 
 ### Historical Public Crawl
 
@@ -16,7 +16,7 @@ Official technical chapters: the 17-page official technical corpus verified on 2
 
 ## Latest Captured MCP Snapshot
 
-Tavo `1.11.0` / build `1110` on 2026-11-18: `112/21/8/0` tools/resources/templates/prompts and 19 public reads. Discovery and declarations only. See [1.11.0 evidence](38-tavo-1110-mcp-evidence.md).
+The local instance reported Tavo `1.12.0` (build `1120`) on 2026-11-23. Discovery returned 112 tools, 21 resources, 8 templates and 0 prompts. The evidence includes 19 public reads and synthetic plugin checks. [1.12.0 evidence](39-tavo-1120-mcp-evidence.md) · [Historical 1.11.0 evidence](38-tavo-1110-mcp-evidence.md)
 
 ## Historical 1.10.0 MCP Snapshot
 

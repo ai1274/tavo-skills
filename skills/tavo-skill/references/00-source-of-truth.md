@@ -6,7 +6,7 @@ This file defines how the Tavo skill decides what is current, what is inferred, 
 
 ## Current Official Documentation Baseline
 
-- `official-current`: the 17-page official technical corpus verified on 2026-11-18 (five updated, twelve byte-identical) is in `references/official-current/`. The `llms-full.txt` export was 929061 bytes (SHA-256 `ba75e17bb08cef3dd00bccf86556decfdb3c7f526a3fd5c258f8b6de90100a71`); [sync manifest（来源说明）](public-release-sources.md#本地资料) records source, per-file and body hashes. This targeted check is not a full-site crawl or live proof.
+- `official-current`: the 2026-11-23 [official documentation check](public-release-sources.md#2026-11-23-技术文档核对) compared 18 Chinese technical chapters; four changed and 14 remained unchanged since 2026-11-20. The public repository links to the original pages instead of bundling the snapshots. This targeted comparison does not establish host compatibility.
 - Historical 2026-11-07 export: 863586 bytes, SHA-256 `e93093136e1845e3a6cf30fda59a1bc7bd899134b19d0302bb3d4a2fedde6cc4`; its 16-page sync changed six bodies and retained ten versus 2026-10-03.
 - The retained 2026-09-23 public-index check listed 84 `/cn` links with the old `/cn/guides/chat/import-export/` URL absent. The 2026-11-07 and 2026-11-14 targeted full-export checks did not repeat a full-site crawl or recheck that link count. Content synchronization is not runtime reliability proof.
 
@@ -16,7 +16,7 @@ This file defines how the Tavo skill decides what is current, what is inferred, 
 - `prior-version/mcp-runtime`: redacted Tavo `0.92.0` surface stored in `assets/schemas/mcp-surface-0.92.0-20260716.json` with compact index `assets/schemas/mcp-surface-index-0.92.0-20260716.json`.
 - `prior-version/live-verified`: the 2026-07-16 ADB/MCP readiness gate plus the redacted 2026-07-17 atomic matrix in `assets/evidence/0.92.0/20260717-live-matrix.json`. The matrix promotes only its named 0.92 assertions: eight core cases passed; F05 notifications, F09 generation sources, and F11 TTS remain mixed. Package/update/Backup B roundtrips and bounded theme, voice-rule, ASR/TTS/image, and NovelAI UI/integration results are recorded separately. Prior 0.91 artifacts remain version-scoped controls.
 
-For MCP schemas and inventory, start with [1.11.0 MCP evidence](../../tavo-1-0-beta-skill/references/38-tavo-1110-mcp-evidence.md). Do not promote dated snapshots to live evidence.
+For MCP schemas and inventory, start with the [1.12.0 MCP public summary](../../tavo-1-0-beta-skill/references/39-tavo-1120-mcp-evidence.md). Do not promote dated observations to live evidence.
 
 The user-provided Tavo 1.1 official announcement is `release-announcement` evidence for the declared update list summarized in `references/02-capabilities-overview.md`. It is `official-only`: it does not replace current MCP descriptors or prove UI, write, persistence, performance, fix, Android, or iOS behavior.
 
@@ -26,7 +26,7 @@ The retained site crawl had no dedicated release-notes page. Verify the relevant
 
 For **declared capabilities and field shapes**:
 
-1. `official-current`: the technical corpus for its selected 17 pages; for other topics, read the relevant official page.
+1. `official-current`: the relevant [official source page](01-official-url-map.md), or the optional local technical corpus for its selected 18 chapters.
 2. `release-announcement`: versioned official release bullets used to identify likely deltas and tests.
 3. `mcp-runtime`: live tools, resources, schemas, runtime docs, and read-only app state from the connected phone.
 4. `historical`: older Tavo-family skills, old probe logs, and old generated guides.
