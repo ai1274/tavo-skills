@@ -21,7 +21,7 @@
 
 - 补全这个 TPG v2 的清单和随包使用指南。用已授权的 MCP 校验 manifest、审计源码并复验，再用项目的 builder 打包。
 - 调整这个插件的聊天面板，让窄屏上也能看清主操作，并检查输入框、安全区和键盘弹出时的布局。
-- `$tavo` 分析当前插件打开历史记录为什么慢。用典型与高负载数据测量，修复有证据的瓶颈并在相同负载下复测。[插件性能实测流程](skills/tavo-studio/references/plugin-performance.md)
+- `$tavo` 在当前历史记录插件增加按发言方筛选。新建和维护插件时，默认检查相关运行路径，按实测证据优化并复测。[插件性能实测流程](skills/tavo-studio/references/plugin-performance.md)
 - 为这个角色制作 CCv3 卡片和配套世界书，检查触发范围，并核对封装到 PNG 的数据。
 
 ## 技能一览

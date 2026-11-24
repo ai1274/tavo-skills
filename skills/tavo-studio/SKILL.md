@@ -7,6 +7,8 @@ description: "实现和验证 Tavo TPG v2、TavoJS、主题、高级渲染与 We
 
 先区分代码/包/导入/宿主四类结果。读目标最近规则、合同、真实入口、相关测试和当前包定义，再从[工程索引](references/engineering-index.md)选一行参考。不要默认加载其他分支或旧仓库规则。
 
+新建、修改或修复插件时，默认按[插件性能实测流程](references/plugin-performance.md)检查本次涉及的运行链路。发现可复现瓶颈时，建立基线、直接优化并复测，再按项目要求构建和检查产物。显式性能任务也按该流程取证。
+
 实现或修复 App 右侧边栏 → WebView → 插件内技能应用时，读[侧栏技能应用与自动配置](references/sidebar-skill-application.md)，复用目标工程的注册、配置和执行实现。
 
 1. **定位执行面。** 插件 `entry.js`/scoped `tavo`、主题脚本、消息/高级渲染脚本、EJS、原生 in-chat Tool Calling、外部 MCP 各有独立边界。按目标上下文核对同名 API、生命周期、权限和数据可见性。不要从跨层同名推断能力。
