@@ -7,7 +7,7 @@ description: "实现和验证 Tavo TPG v2、TavoJS、主题、高级渲染与 We
 
 先区分代码/包/导入/宿主四类结果。读目标最近规则、合同、真实入口、相关测试和当前包定义，再从[工程索引](references/engineering-index.md)选一行参考。不要默认加载其他分支或旧仓库规则。
 
-新建、修改或修复插件时，默认按[插件性能实测流程](references/plugin-performance.md)检查本次涉及的运行链路。发现可复现瓶颈时，建立基线、直接优化并复测，再按项目要求构建和检查产物。显式性能任务也按该流程取证。
+新建、修改或修复插件时，默认按[插件优化流程](references/plugin-performance.md)完善本次涉及的功能并检查运行链路。补齐可证实的功能缺口，优化可复现的性能瓶颈，分别执行功能回归和性能复测。
 
 实现或修复 App 右侧边栏 → WebView → 插件内技能应用时，读[侧栏技能应用与自动配置](references/sidebar-skill-application.md)，复用目标工程的注册、配置和执行实现。
 
@@ -20,7 +20,13 @@ description: "实现和验证 Tavo TPG v2、TavoJS、主题、高级渲染与 We
 
 - **平台必填：** 新包在根目录放 `manifest.json`，写 `specVersion: 2`、稳定小写 `id`、单行 `name`（1–64 个可见字符）、SemVer `version`、单行字面 `author`（1–32 个可见字符）、`description` 和 `localization.defaultLocale`。新建插件按用户或项目约定填写作者，已有插件保留原署名。声明输入动作、右侧边栏动作或最后一条消息动作时，`entry` 指向包内实际脚本，并核对动作 ID 与 handler 一致；其他引用也须打进包，用正斜杠相对路径。
 - **面向用户的必交内容：** `description` 首段直接说明插件做什么，兼顾列表展示的纯文本前 120 个字符；后接「使用指南」，写明实际前提、Tavo 内入口、核心操作步骤及适用的限制或风险。用 Markdown，不靠原始 HTML；`description` 上限为 10,000 个可见字符且 UTF-8 不超过 64 KiB。用 `$t` 时核对当前及默认语言能解析到完整文案并将所用 catalog 随包交付，不能只写 README。已有面板或设置页可给必要提示，不为此另建页面。
-- **按能力填写：** `minAppVersion` 按实际用到的功能和目标版本定，不照填 MCP 的版本号；只声明实际所需的权限。封面和 `releaseNotes` 不是平台必填，发布新版本时更新本版说明（如使用），不要粘贴完整历史。[官方根字段与文本限制](https://docs.tavoai.dev/cn/guides/plugin-development/)
+- **按能力填写。** 按实际使用的功能核定 `minAppVersion` 和权限。封面按项目需要提供。[官方根字段与文本限制](https://docs.tavoai.dev/cn/guides/plugin-development/)
+
+## 插件版本与更新日志
+
+- 每次交付插件更新时，以此前交付版本和最终保留的插件改动为基准，按项目版本策略更新一次。项目无规则时，兼容修复、性能或交互完善升 patch，新增兼容功能升 minor，不兼容变更升 major。新插件初始化版本和首版日志。复测和重复打包沿用本次候选版本。只读检查或插件内容无净变化时沿用原版本。
+- 更新版本的真实维护位置，并同步项目实际使用的 `manifest.json`、包配置或 builder 引用。更新本版 `releaseNotes`，按最终改动写清新增、完善、修复或可证实的性能收益。使用 `$t` 时同步对应语言目录。维护已有 `CHANGELOG` 或版本记录，只在其中保留历史。插件 ID 与按能力核定的 `minAppVersion` 各自维护。
+- 从版本和日志更新后的源码走项目 builder，读取生成包内的 `version` 和解析后的 `releaseNotes`，确认与实际改动和维护源一致。交付写明旧版、新版及验证结果。
 
 ## 面板与主题美化
 
@@ -30,6 +36,6 @@ description: "实现和验证 Tavo TPG v2、TavoJS、主题、高级渲染与 We
 
 ## 开发时用 MCP 验证
 
-改动涉及 manifest、国际化、Tavo 宿主接口或版本兼容性时，若目标 MCP 已获授权且可用，先读同会话版本、相关工具 schema 和公开兼容资料。由[直连运行手册](../tavo-1-0-beta-skill/references/11-mcp-runtime.md#插件开发校验)选择与改动对应的 TPG 清单校验或源码审计；按诊断改真实源文件，再用同一检查复验。通过后仍用项目 builder 和产物检查。MCP 不可用或目标版本不符时继续做本地检查，并标明证据缺口。只改视觉可跳过无关清单审计，但不能用 MCP 替代视觉验收。
+用户提供 Tavo MCP 地址时，使用该地址进行真实验证，首选直连 HTTP JSON-RPC。按[直连运行手册](../tavo-1-0-beta-skill/references/11-mcp-runtime.md#插件开发校验)核对同会话版本和实际工具 schema，校验本次更新的 manifest、源码或实际打包输入。对功能、渲染、桥接和存储，使用该实例实际支持且已获授权的工具，核对目标插件版本、操作结果或回读数据。连接失败、缺少地址、工具或授权时，继续本地验证并说明哪项真实行为仍待测。分别报告清单与审计、宿主运行及本地模拟结果。
 
 MCP 发现或校验之外的操作仍按 [MCP 分支](../tavo-1-0-beta-skill/SKILL.md)核对权限。角色卡写作主任务交给[角色卡分支](../tavo-character-card/SKILL.md)；项目结构不明时读[工程定位](../tavo-memory-steward-clean-workflow/references/project-architecture.md)。

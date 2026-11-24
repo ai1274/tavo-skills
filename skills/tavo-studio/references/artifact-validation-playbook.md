@@ -39,7 +39,7 @@ Choose validation layers that can falsify those claims. An attractive or importa
 ```text
 contract/source
 → focused tests
-→ version owners when release is requested
+→ update version and release-note sources for each plugin update
 → repository release gate
 → builder-generated .tpg
 → structure/manifest inspection
@@ -50,6 +50,7 @@ contract/source
 Check:
 
 - manifest identity, version, entry/actions/hooks/settings fields match current owner;
+- for a plugin update, read back the packaged version and resolved `releaseNotes`. Match them to the updated sources and the retained plugin changes;
 - for a new user-facing plugin or a metadata change, read the packaged manifest and any referenced locale files: verify the intended author and that the description includes the actual entry point, operating steps and relevant caveats; do not count a repository-only README;
 - archive structure comes from the builder;
 - generated package is not edited afterward;

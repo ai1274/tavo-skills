@@ -1,6 +1,6 @@
 ---
 name: tavo
-description: "Tavo 通用入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、插件与 WebView、主题、角色卡、世界书、预设、正则。新建或维护插件时默认检查相关运行路径，按实测结果自动优化。只需最小改动计划、仓库流程或工具排障时，由模型直接选择对应专项。非 Tavo 工作仅在显式调用时进入配套流程。"
+description: "Tavo 通用入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、插件与 WebView、主题、角色卡、世界书、预设、正则。新建或维护插件时默认完善现有功能、补齐缺口并按实测优化性能。只需最小改动计划、仓库流程或工具排障时，由模型直接选择对应专项。非 Tavo 工作仅在显式调用时进入配套流程。"
 ---
 
 # Tavo
@@ -24,7 +24,7 @@ description: "Tavo 通用入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、�
 
 同一任务需要分工验收与源码范围时，先由项目工作流确定包、合同和门禁，再由主线锁定源码路径及回归。工具异常需要单独诊断时，带上工作目录、输入、命令和报错交给工具链，并把诊断回传给负责门禁的分支。
 
-**插件性能**。新建、开发功能、修复或维护插件时，默认进入 `tavo-studio` 的[插件性能实测流程](../tavo-studio/references/plugin-performance.md)，无需用户另提优化。识别本次涉及的 WebView、桥接、数据路径和服务，对有基线证据的瓶颈自动实施最小改动，复测后决定保留或撤回。性能诊断也走该流程，按任务的读写范围执行。
+**插件优化**。新建、开发功能、修复或维护插件时，默认进入 `tavo-studio` 的[插件优化流程](../tavo-studio/references/plugin-performance.md)。在当前范围内完善和补齐已证实的功能缺口，对实测瓶颈实施最小优化并复测。每次交付插件更新都按[版本与更新日志规则](../tavo-studio/SKILL.md#插件版本与更新日志)更新版本号和本版说明。用户提供 Tavo MCP 地址时，用该实例执行[真实验证](../tavo-studio/SKILL.md#开发时用-mcp-验证)。诊断按任务的读写范围执行。
 
 ## 按需使用配套流程
 
@@ -34,7 +34,7 @@ description: "Tavo 通用入口。用于 Tavo 平台、TavoJS、MCP、TPG v2、�
 
 **查官方技术文档：**先按交付物选分支；已知页面就直接读。接口名、配置项或术语涉及多页、章节不明时，再用[官方 URL 索引与离线检索](../tavo-skill/references/01-official-url-map.md#search-the-official-snapshots-offline)。检索结果用于定位原文，不改变分支、证据级别或操作授权。
 
-**Tavo MCP 同机示例**为 `http://127.0.0.1:7347/mcp`。首选直连 HTTP JSON-RPC，地址以 Tavo 当前设置为准。仅在当前任务获授权且需要实时接口或插件校验时连接；Bearer 由用户在当次运行注入，不写入技能、项目或日志。Tavo 插件开发按[工程分支的验证闭环](../tavo-studio/SKILL.md#开发时用-mcp-验证)，不因加载本技能自动连接。
+**Tavo MCP 同机示例**为 `http://127.0.0.1:7347/mcp`。真实验证使用用户为当前任务提供的地址，首选直连 HTTP JSON-RPC。Bearer 由用户在当次运行注入，仅发往获授权的地址。Tavo 插件开发按[工程分支的验证闭环](../tavo-studio/SKILL.md#开发时用-mcp-验证)执行。
 
 隐式触发以交付物是否依赖 Tavo 为准。仅处在 Tavo 目录、提到名称或翻译日志均不触发。先由当前目录和最近规则定位项目对象。不同 owner 会改变结果且无法消歧时再询问。
 

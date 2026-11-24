@@ -12,6 +12,8 @@
 
 ## 插件开发校验
 
+真实验证直连用户为当前任务提供的 Tavo MCP 地址。没有地址时记录待测条件。凭据仅随请求发往授权地址。
+
 1. 在同一会话读取版本、`tavo://docs/plugins/compatibility` 和所需工具的 `inputSchema`。目标版本或工具不可用时，继续项目本地验证并记录哪项检查缺少证据。
 2. 改动清单时调用 `tavo_plugin_validate_manifest`，按当前 schema 传入 `{ "manifest": ... }`。读取工具结果中的业务状态和字段诊断。该检查能推导清单声明的最低版本，TavoJS 和 HTML 实际使用的能力仍须分别核对。
 3. 改动源码、资源或本地化目录时调用 `tavo_plugin_audit`。根据当前 schema 二选一传入经授权且服务端可读的 `sourcePath`，或传不含凭据及用户数据的 `files`。修正诊断后重新校验或审计，再运行项目已有的构建和产物检查。
